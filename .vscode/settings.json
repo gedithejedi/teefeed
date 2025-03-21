@@ -1,0 +1,56 @@
+{
+  "solidity.telemetry": false,
+  "solidity.remappingsUnix": [],
+  "solidity.remappings": [],
+  "solidity.packageDefaultDependenciesDirectory": "",
+  "git.confirmSync": false,
+  "git.ignoreRebaseWarning": true,
+  "editor.tabSize": 2,
+  "editor.acceptSuggestionOnCommitCharacter": false,
+  "tailwindCSS.includeLanguages": {
+    "html": "html",
+    "javascript": "javascript",
+    "css": "css"
+  },
+  "editor.quickSuggestions": {
+    "strings": true
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "[typescriptreact]": {
+    // "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    // "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascriptreact]": {
+    // "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "git.openRepositoryInParentFolders": "never",
+  "editor.maxTokenizationLineLength": 2000000,
+  "git.enableSmartCommit": true,
+  "editor.formatOnSave": true,
+  "editor.fontWeight": "normal",
+  "solidity.remappingsWindows": [],
+  "[php]": {
+    "editor.defaultFormatter": "bmewburn.vscode-intelephense-client"
+  },
+  "githubPullRequests.createOnPublishBranch": "never",
+  "markdown-preview-enhanced.previewTheme": "atom-dark.css",
+  "githubPullRequests.pullBranch": "never",
+  "github.copilot.editor.enableAutoCompletions": true,
+  "debug.disassemblyView.showSourceCode": false,
+  "emmet.preferences": {},
+  "gitlens.launchpad.indicator.enabled": false,
+  "github.copilot.chat.runCommand.enabled": false
+}
