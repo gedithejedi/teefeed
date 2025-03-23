@@ -3,7 +3,6 @@
 import { useTweets } from "@/hooks/useTweets";
 import dayjs from "dayjs";
 import TweetSummary from "./TweetSummary";
-import { useState } from "react";
 
 interface TweetDisplayProps {
   accountHandles: string[];

@@ -5,9 +5,8 @@ const TWITTER_API_URL = "https://api.twitterapi.io";
 
 export async function GET(request: NextRequest) {
   try {
-    // Get endpoint and params from the request
+    // Get username and cursor from the request
     const { searchParams } = new URL(request.url);
-    const endpoint = searchParams.get("endpoint") || "twitter/user/last_tweets";
     const userName = searchParams.get("username");
 
     if (!userName) {
@@ -17,22 +16,25 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    // Make the request to Twitter API
-    const response = await axios.get(`${TWITTER_API_URL}/${endpoint}`, {
-      params: {
-        userName,
-      },
-      headers: {
-        "X-API-Key": process.env.TWITTER_API || "",
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-    });
-    console.log(response);
+    // Make the request to Twitter API for followings
+    const response = await axios.get(
+      `${TWITTER_API_URL}/twitter/user/followings`,
+      {
+        params: {
+          userName,
+        },
+        headers: {
+          "X-API-Key": process.env.TWITTER_API || "",
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+      }
+    );
+
     // Return the Twitter API response
-    return NextResponse.json(response.data);
+    return NextResponse.json(response.data?.followings);
   } catch (error: any) {
-    console.error("Error proxying Twitter API request:", error.message);
+    console.error("Error fetching Twitter followings:", error.message);
 
     if (error.response) {
       console.error("Error response data:", error.response.data);
@@ -41,7 +43,7 @@ export async function GET(request: NextRequest) {
 
     return NextResponse.json(
       {
-        error: "Failed to fetch data from Twitter API",
+        error: "Failed to fetch followings from Twitter API",
         details: error.message,
         response: error.response?.data || "No response data",
       },
