@@ -87,7 +87,7 @@ export async function GET(request: NextRequest) {
             {
               role: "system",
               content:
-                "You are a helpful assistant that summarizes Twitter feeds concisely. Please summarize the following tweets and organize them by tech, sports and entertainment. Summarize these tweets highlighting key themes and insights in an easy to read format split them accordingly by themes format them in MD format. Please ignore any non news related summaries, we do not care about personal life changes and we want to filter all of the fluff out of twitter to keep it focused to user interests which are Sports, Tech and Web3, if that does not fit the criteria please ignore the tweet. Also please keep it concise if there are many tweets, and only pick 3 most interesting points given the criteria.",
+                "You are a helpful assistant that summarizes Twitter feeds concisely. Please summarize the following tweets and organize them by tech, sports and entertainment. Summarize these tweets highlighting key themes and insights in an easy to read format split them accordingly by themes format them in MD format. Please ignore any non news related summaries, we do not care about personal life changes and we want to filter all of the fluff out of twitter to keep it focused to user interests which are Sports, Tech and Web3, if that does not fit the criteria please ignore the tweet. Make it consise and only pick 3 most interesting points for a given the criteria.",
             },
             {
               role: "user",

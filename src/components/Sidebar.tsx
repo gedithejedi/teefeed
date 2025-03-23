@@ -77,13 +77,6 @@ export default function Sidebar({ onAccountsChange, onRefetch }: SidebarProps) {
   const [isLoadingFollowings, setIsLoadingFollowings] = useState(false);
   const [followingsError, setFollowingsError] = useState<string | null>(null);
 
-  // Update parent component when selected accounts change
-  useEffect(() => {
-    if (onAccountsChange) {
-      onAccountsChange(selectedAccounts);
-    }
-  }, [selectedAccounts, onAccountsChange]);
-
   // Load followings when feed source changes to "followings"
   useEffect(() => {
     if (feedSource === "followings" && followingsUsername) {
@@ -99,7 +92,6 @@ export default function Sidebar({ onAccountsChange, onRefetch }: SidebarProps) {
         .map((account) => account.handle);
 
       setSelectedAccounts(firstThreeHandles);
-      setAppliedAccounts(firstThreeHandles);
     }
   }, [feedSource, followingAccounts]);
 
@@ -179,14 +171,18 @@ export default function Sidebar({ onAccountsChange, onRefetch }: SidebarProps) {
     );
   };
 
-  // Handle refetch action
+  // Handle refetch action - modified to call onAccountsChange as well
   const handleRefetch = () => {
     if (onRefetch) {
       setIsRefetching(true);
 
       // Simulate a short delay to show loading state
       setTimeout(() => {
+        // Call both callbacks when the Apply Changes button is clicked
         onRefetch(selectedAccounts);
+        if (onAccountsChange) {
+          onAccountsChange(selectedAccounts);
+        }
         setAppliedAccounts([...selectedAccounts]);
         setIsRefetching(false);
       }, 800);
