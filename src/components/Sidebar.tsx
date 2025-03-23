@@ -1,8 +1,8 @@
 export default function Sidebar() {
   return (
-    <div className="hidden lg:block w-80 ml-8">
+    <div className="hidden lg:block w-80 ml-8 h-full">
       {/* Search */}
-      <div className="sticky top-0 bg-black py-2 z-10">
+      {/* <div className="sticky top-0 bg-black py-2 z-10">
         <div className="bg-gray-800 rounded-full px-4 py-2 flex items-center">
           <svg
             className="w-5 h-5 text-gray-500"
@@ -17,7 +17,7 @@ export default function Sidebar() {
             className="bg-transparent border-none focus:outline-none text-white ml-2 w-full"
           />
         </div>
-      </div>
+      </div> */}
 
       {/* Trending section */}
       {/* <div className="bg-gray-800 rounded-xl mt-4">

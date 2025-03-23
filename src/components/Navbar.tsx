@@ -16,7 +16,7 @@ import Image from "next/image";
 export default function Navbar() {
   const navItems = [
     { icon: <FaHome size={24} />, text: "Home" },
-    { icon: <FaHashtag size={24} />, text: "Explore" },
+    // { icon: <FaHashtag size={24} />, text: "Explore" },
     // { icon: <FaBell size={24} />, text: "Notifications" },
     // { icon: <FaEnvelope size={24} />, text: "Messages" },
     // { icon: <FaBookmark size={24} />, text: "Bookmarks" },
@@ -82,7 +82,7 @@ export default function Navbar() {
           </div>
         </div>
         <div className="hidden xl:block ml-3">
-          <p className="font-bold text-white">User Name</p>
+          <p className="font-bold text-white">Unknown User</p>
           <p className="text-gray-500 text-sm">@username</p>
         </div>
         <div className="hidden xl:block ml-auto text-gray-500">
