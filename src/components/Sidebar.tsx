@@ -20,7 +20,7 @@ export default function Sidebar() {
       </div>
 
       {/* Trending section */}
-      <div className="bg-gray-800 rounded-xl mt-4">
+      {/* <div className="bg-gray-800 rounded-xl mt-4">
         <h2 className="text-xl font-bold text-white p-4">Trends for you</h2>
 
         {[1, 2, 3, 4].map((_, i) => (
@@ -38,10 +38,10 @@ export default function Sidebar() {
         <div className="p-4 text-blue-400 hover:bg-gray-700 cursor-pointer rounded-b-xl">
           Show more
         </div>
-      </div>
+      </div> */}
 
       {/* Who to follow */}
-      <div className="bg-gray-800 rounded-xl mt-4">
+      {/* <div className="bg-gray-800 rounded-xl mt-4">
         <h2 className="text-xl font-bold text-white p-4">Who to follow</h2>
 
         {[
@@ -69,7 +69,7 @@ export default function Sidebar() {
         <div className="p-4 text-blue-400 hover:bg-gray-700 cursor-pointer rounded-b-xl">
           Show more
         </div>
-      </div>
+      </div> */}
 
       {/* Footer */}
       <div className="text-gray-500 text-xs mt-4 px-4">

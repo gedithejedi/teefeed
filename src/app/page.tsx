@@ -88,7 +88,7 @@ export default function Home() {
             </div>
           </header>
 
-          <ComposeTweet />
+          {/* <ComposeTweet /> */}
 
           <div>
             {tweets.map((tweet) => (
