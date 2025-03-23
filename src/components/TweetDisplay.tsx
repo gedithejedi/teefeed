@@ -19,18 +19,7 @@ const TweetDisplay: React.FC<TweetDisplayProps> = ({
     maxTweetsPerAccount
   );
 
-  // Track image loading errors
-  const [imgErrors, setImgErrors] = useState<Record<string, boolean>>({});
-
   const tweets = data?.tweets || [];
-
-  // Handle image load error
-  const handleImageError = (tweetId: string) => {
-    setImgErrors((prev) => ({
-      ...prev,
-      [tweetId]: true,
-    }));
-  };
 
   return (
     <div>
@@ -55,12 +44,11 @@ const TweetDisplay: React.FC<TweetDisplayProps> = ({
             <div key={tweet.id} className="p-4 hover:bg-gray-900">
               <div className="flex items-start">
                 <div className="mr-3">
-                  {tweet.author?.profilePicture && !imgErrors[tweet.id] ? (
+                  {tweet.author?.profilePicture ? (
                     <img
                       src={tweet.author.profilePicture}
                       alt={`${tweet.author.name}'s avatar`}
                       className="w-10 h-10 rounded-full object-cover"
-                      onError={() => handleImageError(tweet.id)}
                       loading="lazy"
                     />
                   ) : (

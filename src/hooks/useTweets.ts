@@ -33,17 +33,7 @@ const fetchTweetsForUser = async (userName: string): Promise<Tweet[]> => {
     }
 
     const data = await response.json();
-    console.log(data);
-    return (data?.data?.tweets || []).map((tweet: any) => ({
-      ...tweet,
-      author: {
-        ...tweet.author,
-        name: data?.data?.user?.name || userName,
-        userName: data?.data?.pin_tweet?.author?.userName,
-        profilePicture: data?.data?.pin_tweet?.author?.profilePicture,
-        isBlueVerified: data?.data?.pin_tweet?.author?.isVerified,
-      },
-    }));
+    return data?.data?.tweets || [];
   } catch (error) {
     console.error(`Error fetching tweets for ${userName}:`, error);
     return [];
@@ -65,14 +55,11 @@ export const useTweets = (
         const allTweetsArrays = await Promise.all(tweetPromises);
 
         // Flatten and sort all tweets by time
-        const allTweets = allTweetsArrays
-          .flat()
-          .sort((a, b) => {
-            const dateA = new Date(a.createdAt || 0).getTime();
-            const dateB = new Date(b.createdAt || 0).getTime();
-            return dateB - dateA; // Sort in descending order (newest first)
-          })
-          .slice(0, maxTweetsPerAccount * accountHandles.length);
+        const allTweets = allTweetsArrays.flat().sort((a, b) => {
+          const dateA = new Date(a.createdAt || 0).getTime();
+          const dateB = new Date(b.createdAt || 0).getTime();
+          return dateB - dateA; // Sort in descending order (newest first)
+        });
 
         return { tweets: allTweets };
       } catch (error) {
