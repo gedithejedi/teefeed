@@ -1,13 +1,32 @@
+"use client";
+
+import { useTweetSummary } from "@/hooks/useTweets";
 import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
 import rehypeSanitize from "rehype-sanitize";
 
 interface TweetSummaryProps {
-  summary: string;
+  accountHandles: string[];
 }
 
-const TweetSummary: React.FC<TweetSummaryProps> = ({ summary }) => {
-  if (!summary) return null;
+const TweetSummary: React.FC<TweetSummaryProps> = ({ accountHandles }) => {
+  const { data, isLoading, error } = useTweetSummary(accountHandles);
+  const summary = data?.summary || "";
+
+  if (isLoading) {
+    return (
+      <div className="p-4 bg-gray-900 rounded-md mb-4">
+        <div className="animate-pulse">
+          <div className="h-4 bg-gray-700 rounded w-3/4 mb-2"></div>
+          <div className="h-4 bg-gray-700 rounded w-1/2"></div>
+        </div>
+      </div>
+    );
+  }
+
+  if (error || !summary) {
+    return null;
+  }
 
   return (
     <div className="bg-indigo-900/30 backdrop-blur-sm rounded-lg p-4 mb-6 border border-indigo-700/50 shadow-lg">

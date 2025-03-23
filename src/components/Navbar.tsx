@@ -82,7 +82,7 @@ export default function Navbar() {
           </div>
         </div>
         <div className="hidden xl:block ml-3">
-          <p className="font-bold text-white">Unknown User</p>
+          <p className="font-bold text-white">Private User</p>
           <p className="text-gray-500 text-sm">@username</p>
         </div>
         <div className="hidden xl:block ml-auto text-gray-500">
