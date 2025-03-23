@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { FaSearch } from "react-icons/fa";
-import { useTwitterValidation } from "@/hooks/useTwitterValidation";
 
 interface AccountSelectorProps {
   onSelectAccounts: (accounts: string[]) => void;
@@ -26,30 +25,21 @@ export default function AccountSelector({
   const [selectedAccounts, setSelectedAccounts] =
     useState<string[]>(defaultAccounts);
 
-  const validateTwitter = useTwitterValidation();
-
   const handleSearch = async (e: React.FormEvent) => {
     e.preventDefault();
     if (searchInput.trim()) {
-      // Remove @ if present
       const handle = searchInput.trim().replace(/^@/, "");
 
-      // Optional: Validate if the handle exists before setting it
-      validateTwitter.mutate(handle, {
-        onSuccess: (exists) => {
-          if (exists || validateTwitter.isError) {
-            // Add the account even if validation fails or succeeds
-            const newSelectedAccounts = [...selectedAccounts];
-            if (!newSelectedAccounts.includes(handle)) {
-              newSelectedAccounts.push(handle);
-              setSelectedAccounts(newSelectedAccounts);
-              onSelectAccounts(newSelectedAccounts);
-            }
-          }
-          // Reset input after search
-          setSearchInput("");
-        },
-      });
+      // Add the account even if validation fails or succeeds
+      const newSelectedAccounts = [...selectedAccounts];
+      if (!newSelectedAccounts.includes(handle)) {
+        newSelectedAccounts.push(handle);
+        setSelectedAccounts(newSelectedAccounts);
+        onSelectAccounts(newSelectedAccounts);
+      }
+
+      // Reset input after search
+      setSearchInput("");
     }
   };
 
@@ -83,10 +73,9 @@ export default function AccountSelector({
           />
           <button
             type="submit"
-            disabled={validateTwitter.isPending}
             className="bg-blue-500 text-white px-4 py-1 rounded-full font-bold hover:bg-blue-600 ml-2 disabled:opacity-50"
           >
-            {validateTwitter.isPending ? "..." : "View"}
+            {"View"}
           </button>
         </div>
       </form>

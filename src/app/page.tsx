@@ -2,6 +2,7 @@ import Tweet from "@/components/Tweet";
 import Sidebar from "@/components/Sidebar";
 import Navbar from "@/components/Navbar";
 import ComposeTweet from "@/components/ComposeTweet";
+import TweetDisplay from "@/components/TweetDisplay";
 
 // Mock data for tweets
 const tweets = [
@@ -90,11 +91,10 @@ export default function Home() {
 
           {/* <ComposeTweet /> */}
 
-          <div>
-            {tweets.map((tweet) => (
-              <Tweet key={tweet.id} {...tweet} />
-            ))}
-          </div>
+          <TweetDisplay
+            accountHandles={["vitalikbuterin", "sarahweb3"]}
+            maxTweetsPerAccount={2}
+          />
         </main>
 
         <Sidebar />
