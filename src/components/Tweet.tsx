@@ -28,6 +28,7 @@ export default function Tweet({
   hasImage = false,
   imageUrl = "",
 }: TweetProps) {
+  console.log(imageUrl);
   return (
     <div className="border-b border-gray-700 p-4 hover:bg-gray-800/50 transition cursor-pointer">
       <div className="flex items-start space-x-3">

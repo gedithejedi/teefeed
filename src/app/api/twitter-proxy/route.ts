@@ -10,8 +10,6 @@ export async function GET(request: NextRequest) {
     const endpoint = searchParams.get("endpoint") || "twitter/user/last_tweets";
     const userName = searchParams.get("username");
 
-    console.log(`Proxy request for: ${userName}`);
-
     if (!userName) {
       return NextResponse.json(
         { error: "Username parameter is required" },

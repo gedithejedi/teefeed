@@ -3,6 +3,7 @@
 import { useTweets } from "@/hooks/useTweets";
 import dayjs from "dayjs";
 import TweetSummary from "./TweetSummary";
+import { useState } from "react";
 
 interface TweetDisplayProps {
   accountHandles: string[];
@@ -18,7 +19,18 @@ const TweetDisplay: React.FC<TweetDisplayProps> = ({
     maxTweetsPerAccount
   );
 
+  // Track image loading errors
+  const [imgErrors, setImgErrors] = useState<Record<string, boolean>>({});
+
   const tweets = data?.tweets || [];
+
+  // Handle image load error
+  const handleImageError = (tweetId: string) => {
+    setImgErrors((prev) => ({
+      ...prev,
+      [tweetId]: true,
+    }));
+  };
 
   return (
     <div>
@@ -43,14 +55,18 @@ const TweetDisplay: React.FC<TweetDisplayProps> = ({
             <div key={tweet.id} className="p-4 hover:bg-gray-900">
               <div className="flex items-start">
                 <div className="mr-3">
-                  {tweet.author?.profilePicture ? (
+                  {tweet.author?.profilePicture && !imgErrors[tweet.id] ? (
                     <img
                       src={tweet.author.profilePicture}
                       alt={`${tweet.author.name}'s avatar`}
-                      className="w-10 h-10 rounded-full"
+                      className="w-10 h-10 rounded-full object-cover"
+                      onError={() => handleImageError(tweet.id)}
+                      loading="lazy"
                     />
                   ) : (
-                    <div className="w-10 h-10 rounded-full bg-gray-700"></div>
+                    <div className="w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center text-white font-bold">
+                      {tweet.author?.name?.[0]?.toUpperCase() || "?"}
+                    </div>
                   )}
                 </div>
                 <div className="flex-1">
@@ -76,6 +92,7 @@ const TweetDisplay: React.FC<TweetDisplayProps> = ({
                         src={tweet?.media_url_https}
                         alt="Tweet media"
                         className="max-h-80 w-auto"
+                        loading="lazy"
                       />
                     </div>
                   )}

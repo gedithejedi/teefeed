@@ -33,14 +33,15 @@ const fetchTweetsForUser = async (userName: string): Promise<Tweet[]> => {
     }
 
     const data = await response.json();
+    console.log(data);
     return (data?.data?.tweets || []).map((tweet: any) => ({
       ...tweet,
       author: {
         ...tweet.author,
         name: data?.data?.user?.name || userName,
-        userName: userName,
-        profilePicture: data?.data?.user?.profile_image_url_https,
-        isBlueVerified: data?.data?.user?.verified,
+        userName: data?.data?.pin_tweet?.author?.userName,
+        profilePicture: data?.data?.pin_tweet?.author?.profilePicture,
+        isBlueVerified: data?.data?.pin_tweet?.author?.isVerified,
       },
     }));
   } catch (error) {
