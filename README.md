@@ -16,29 +16,10 @@ We believe social media feeds should serve users, not engagement metrics. Teefee
 ## ✨ Features
 
 - **Custom Account Selection**: Choose up to 3 accounts to curate your personalized feed
-- **Feed Summary Generation**: AI-powered summaries of your curated content
+- **Feed Summary Generation**: Nilion AI-powered summaries of your curated content
 - **Real-time Tweet Fetching**: Live integration with X/Twitter API
 - **Suggested vs Following**: Toggle between suggested accounts and your followings
 - **Clean, Intuitive Interface**: Focus on content, not distractions
-
-## 🛠️ Tech Stack
-
-### Frontend
-- **Next.js 14** with TypeScript and React
-- **TailwindCSS** for responsive styling
-- **React Query** for efficient data fetching and caching
-- **Custom UI Components** for feed visualization
-
-### Backend
-- **Node.js** API with TypeScript
-- **Twitter/X API** integration for real-time tweet fetching
-- **AI/ML Services** for feed summary generation
-- **Custom caching** for performance optimization
-
-### Infrastructure
-- **Vercel** deployment platform
-- **Environment-based** configuration management
-- **API rate limiting** and optimization
 
 ## 🚀 Quick Start
 
@@ -46,7 +27,7 @@ We believe social media feeds should serve users, not engagement metrics. Teefee
 - Node.js 18+ 
 - npm/yarn/pnpm/bun
 - Twitter/X API credentials
-- OpenAI API key (for summaries)
+- Nilion API key (for summaries)
 
 ### Installation
 
@@ -128,10 +109,6 @@ npm run build
 npm run start
 ```
 
-## 🤝 Contributing
-
-We welcome contributions! Help us make social media feeds more user-centric.
-
 ### Development Workflow
 1. Fork the repository
 2. Create a feature branch (`git checkout -b feature/amazing-feature`)
@@ -155,30 +132,15 @@ We welcome contributions! Help us make social media feeds more user-centric.
 ### Twitter API
 - Real-time tweet fetching from selected accounts
 - User search and account information
-- Rate limiting and error handling
 
 ### AI Services
 - Feed content summarization
 - Intelligent content analysis
-- Customizable summary generation
 
 ## 🔗 Links
 
 - **Hackathon Showcase**: [ETHGlobal - Teefeed](https://ethglobal.com/showcase/teefeed-rcq50)
 - **Live Demo**: [teefeed.vercel.app](https://teefeed.vercel.app)
-- **Twitter**: [@teefeed](https://twitter.com/teefeed)
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🙏 Acknowledgments
-
-- ETHGlobal for hosting the hackathon
-- Twitter/X API for enabling social media integration
-- OpenAI for AI-powered summarization capabilities
-- Next.js team for the amazing framework
-- All contributors making decentralized social media possible
 
 ---
 
