@@ -1,36 +1,187 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🐦 Teefeed
 
-## Getting Started
+**Take control of your X feed algorithm**
 
-First, run the development server:
+Teefeed decentralizes the X algorithm, letting you create your own personalized feed based on your interests and chosen accounts. No more algorithmic black boxes - design the feed you actually want to see.
 
+## 🚀 Mission
+
+We believe social media feeds should serve users, not engagement metrics. Teefeed empowers X users to:
+
+- **Design custom feeds** by selecting specific accounts to follow
+- **Generate intelligent feed summaries** powered by AI
+- **Break free from opaque algorithms** that prioritize engagement over relevance
+- **Take charge of what you see** instead of being fed content by mysterious systems
+
+## ✨ Features
+
+- **Custom Account Selection**: Choose up to 3 accounts to curate your personalized feed
+- **Feed Summary Generation**: AI-powered summaries of your curated content
+- **Real-time Tweet Fetching**: Live integration with X/Twitter API
+- **Suggested vs Following**: Toggle between suggested accounts and your followings
+- **Clean, Intuitive Interface**: Focus on content, not distractions
+
+## 🛠️ Tech Stack
+
+### Frontend
+- **Next.js 14** with TypeScript and React
+- **TailwindCSS** for responsive styling
+- **React Query** for efficient data fetching and caching
+- **Custom UI Components** for feed visualization
+
+### Backend
+- **Node.js** API with TypeScript
+- **Twitter/X API** integration for real-time tweet fetching
+- **AI/ML Services** for feed summary generation
+- **Custom caching** for performance optimization
+
+### Infrastructure
+- **Vercel** deployment platform
+- **Environment-based** configuration management
+- **API rate limiting** and optimization
+
+## 🚀 Quick Start
+
+### Prerequisites
+- Node.js 18+ 
+- npm/yarn/pnpm/bun
+- Twitter/X API credentials
+- OpenAI API key (for summaries)
+
+### Installation
+
+1. **Clone the repository**
+```bash
+git clone https://github.com/your-org/teefeed.git
+cd teefeed
+```
+
+2. **Install dependencies**
+```bash
+npm install
+# or
+yarn install
+# or
+pnpm install
+```
+
+3. **Set up environment variables**
+```bash
+cp .env.example .env.local
+# Add your API keys:
+# TWITTER_API_KEY=your_twitter_api_key
+# TWITTER_API_SECRET=your_twitter_api_secret
+# OPENAI_API_KEY=your_openai_api_key
+```
+
+4. **Run the development server**
 ```bash
 npm run dev
 # or
 yarn dev
 # or
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+5. **Open your browser**
+Navigate to [http://localhost:3000](http://localhost:3000) to see Teefeed in action.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🏗️ Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+teefeed/
+├── app/                    # Next.js app directory
+│   ├── page.tsx           # Main feed interface
+│   └── api/               # API routes for Twitter integration
+├── components/             # Reusable React components
+│   ├── FeedSummary.tsx    # AI-powered feed summary
+│   ├── AccountSelector.tsx # Account selection interface
+│   └── TweetCard.tsx      # Individual tweet display
+├── lib/                   # Utility functions and configurations
+│   ├── twitter.ts         # Twitter API integration
+│   └── ai.ts             # AI summary generation
+├── hooks/                 # Custom React hooks
+├── types/                 # TypeScript type definitions
+└── public/               # Static assets
+```
 
-## Learn More
+## 🎯 How It Works
 
-To learn more about Next.js, take a look at the following resources:
+1. **Account Selection**: Users can search and select up to 3 Twitter accounts to follow
+2. **Feed Curation**: Teefeed fetches tweets from selected accounts in real-time
+3. **AI Summarization**: Generate intelligent summaries of the curated feed content
+4. **Personalized Experience**: Each user gets a unique feed based on their choices
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🏆 Hackathon Project
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+This project was built for ETHGlobal hackathon. Check out our submission:
 
-## Deploy on Vercel
+**🔗 [View on ETHGlobal Showcase](https://ethglobal.com/showcase/teefeed-rcq50)**
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🚀 Deployment
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Vercel (Recommended)
+The easiest way to deploy Teefeed is using the [Vercel Platform](https://vercel.com/new).
+
+```bash
+npm run build
+npm run start
+```
+
+## 🤝 Contributing
+
+We welcome contributions! Help us make social media feeds more user-centric.
+
+### Development Workflow
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Make your changes following our coding standards
+4. Test with different Twitter accounts and feed configurations
+5. Commit your changes (`git commit -m 'Add amazing feature'`)
+6. Push to your branch (`git push origin feature/amazing-feature`)
+7. Open a Pull Request
+
+## 🔧 Development Guidelines
+
+### Core Principles
+- **User-first design**: Always prioritize user control over algorithmic decisions
+- **Performance optimization**: Efficient API usage and caching strategies
+- **Clean, intuitive UI**: Focus on content readability and ease of use
+- **Rate limit awareness**: Respect Twitter API limits and implement proper throttling
+- **Responsive design**: Ensure great experience across all devices
+
+## 📚 API Integration
+
+### Twitter API
+- Real-time tweet fetching from selected accounts
+- User search and account information
+- Rate limiting and error handling
+
+### AI Services
+- Feed content summarization
+- Intelligent content analysis
+- Customizable summary generation
+
+## 🔗 Links
+
+- **Hackathon Showcase**: [ETHGlobal - Teefeed](https://ethglobal.com/showcase/teefeed-rcq50)
+- **Live Demo**: [teefeed.vercel.app](https://teefeed.vercel.app)
+- **Twitter**: [@teefeed](https://twitter.com/teefeed)
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- ETHGlobal for hosting the hackathon
+- Twitter/X API for enabling social media integration
+- OpenAI for AI-powered summarization capabilities
+- Next.js team for the amazing framework
+- All contributors making decentralized social media possible
+
+---
+
+**Made with ❤️ by the Teefeed team**
+
+*Empowering users to take control of their social media experience*
