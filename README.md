@@ -2,7 +2,7 @@
 
 **Take control of your X feed algorithm**
 
-Teefeed decentralizes the X algorithm, letting you create your own personalized feed based on your interests and chosen accounts. No more algorithmic black boxes - design the feed you actually want to see.
+Teefeed decentralizes the X algorithm, letting you create your own personalized feed based on your interests and chosen accounts. No more algorithmic black boxes - design the feed you actually want to see
 
 ## 🚀 Mission
 
